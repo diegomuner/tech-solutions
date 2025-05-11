@@ -1,0 +1,52 @@
+<!-- VENTA DE DNIs section -->
+<section class="dni-section">
+  <h2>VENTA DE DNIs</h2>
+  <div class="dni-card">
+    <img src="assets/dni-demo.png" alt="DNI Electrónico" />
+    <div class="dni-info">
+      <h3>DNI Electrónico</h3>
+      <p>Documento Nacional de Identidad electrónico. Compra tu DNI aquí.</p>
+      <div class="price">$99.99</div>
+      <button (click)="addToCart(products.find(p => p.id === 6)!)">Agregar al carrito</button>
+    </div>
+  </div>
+</section>
+<div class="main-layout">
+  <aside class="sidebar">
+    <img src="assets/tech-solutions-logo.svg" alt="TECH-SOLUTIONS Logo" class="logo" />
+    <h1>TECH-SOLUTIONS</h1>
+    <nav class="category-menu">
+      <h3>Categories</h3>
+      <ul>
+        <li *ngFor="let cat of categories" [class.selected]="cat === selectedCategory" (click)="filterByCategory(cat)">{{ cat }}</li>
+      </ul>
+    </nav>
+  </aside>
+  <section class="content-area">
+    <h2>Tech Products</h2>
+    <div class="product-list">
+      <div class="product-card" *ngFor="let product of filteredProducts">
+        <img [src]="product.image" [alt]="product.name" width="150" height="150" />
+        <h3>
+          <a [routerLink]="['/product', product.id]">{{ product.name }}</a>
+        </h3>
+        <p>{{ product.description }}</p>
+        <div class="price">${{ product.price }}</div>
+        <button (click)="addToCart(product)">Add to Cart</button>
+      </div>
+    </div>
+
+    <section class="dni-section">
+      <h2>VENTA DE DNIs</h2>
+      <div class="dni-card">
+        <img src="assets/dni-demo.png" alt="DNI Demo" class="dni-img" />
+        <div class="dni-info">
+          <h3>DNI Electrónico</h3>
+          <p>Documento Nacional de Identidad electrónico, válido para trámites digitales y presenciales.</p>
+          <div class="price">$99.99</div>
+          <button>Comprar</button>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>
